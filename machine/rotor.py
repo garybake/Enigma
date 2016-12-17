@@ -19,3 +19,16 @@ class Rotor:
         """
         if mappings:
             self.mappings = mappings
+
+    def map_letter(self, letter, reverse=False):
+        """
+        Get the letter mapping
+        Use reverse=True for a reverse mapping
+        """
+        if not reverse:
+            return self.mapping[letter]
+
+        for key, val in self.mapping.items():
+            if val == letter:
+                return key
+        return 'ERROR' # TODO

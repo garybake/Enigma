@@ -21,12 +21,15 @@ class RotorTest(unittest.TestCase):
         r2 = Rotor('R')
         self.assertEqual(r2.state, 'R')
 
-    def test_mappings(self):
+    def test_letter_mapping(self):
         r = self.rtr
+        self.assertEqual(r.map_letter('A'), 'B')
+        self.assertEqual(r.map_letter('D'), 'D')
+        self.assertEqual(r.map_letter('Z'), 'Z')
 
-        self.assertEqual(r.mapping['A'], 'B')
-        self.assertEqual(r.mapping['D'], 'D')
-        self.assertEqual(r.mapping['Z'], 'Z')
+        self.assertEqual(r.map_letter('B', reverse=True), 'A')
+        self.assertEqual(r.map_letter('D', reverse=True), 'D')
+        self.assertEqual(r.map_letter('Z', reverse=True), 'Z')
 
 if __name__ == '__main__':
     unittest.main()
