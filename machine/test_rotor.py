@@ -1,16 +1,15 @@
 #!/usr/bin/env python3
 
-from rotor import Rotor
 import unittest
+
+from rotor import Rotor
+import map_set
 
 class RotorTest(unittest.TestCase):
 
     def setUp(self):
         r = Rotor('A')
-        new_mapping = r.mapping
-        new_mapping['A'] = 'B'
-        new_mapping['B'] = 'C'
-        new_mapping['C'] = 'A'
+        new_mapping = 'BCADEFGHIJKLMNOPQRSTUVWXYZ'
 
         r.set_mappings(new_mapping)
         self.rtr = r

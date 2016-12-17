@@ -1,0 +1,7 @@
+# https://en.wikipedia.org/wiki/Enigma_rotor_details
+
+MAP_SET_1294_COMMERCIAL = [
+    'DMTWSILRUYQNKFEJCAZBPGXOHV', 
+    'HQZGPJTMOBLNCIFDYAWVEUSRKX', 
+    'UQNTLSZFMREHDPXKIBVYGJCWOA'
+]
