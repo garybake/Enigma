@@ -10,14 +10,14 @@ class RotorTest(unittest.TestCase):
     def setUp(self):
         self.rgroup = RotorGroup(map_set=map_set.MAP_SET_1294_COMMERCIAL)
 
-    # def test_default_set(self):
-    #     self.assertEqual(len(self.rgroup.rotors), 3)
+    def test_default_set(self):
+        self.assertEqual(len(self.rgroup.rotors), 3)
 
-    #     first_rotor = self.rgroup.rotors[0]
-    #     self.assertEqual(first_rotor.state, 'A')
+        first_rotor = self.rgroup.rotors[0]
+        self.assertEqual(first_rotor.state, 'A')
 
-    #     third_rotor = self.rgroup.rotors[2]
-    #     self.assertEqual(third_rotor.state, 'C')
+        third_rotor = self.rgroup.rotors[2]
+        self.assertEqual(third_rotor.state, 'A')
 
     def test_group_mapping(self):
         map_a = self.rgroup.map_letter('A')

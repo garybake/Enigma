@@ -8,17 +8,24 @@ import map_set
 class RotorTest(unittest.TestCase):
 
     def setUp(self):
-        r = Rotor('A')
-        new_mapping = 'BCADEFGHIJKLMNOPQRSTUVWXYZ'
-
-        r.set_mappings(new_mapping)
+        mapping = 'BCADEFGHIJKLMNOPQRSTUVWXYZ'
+        r = Rotor(key_order=mapping, start_state='A')
         self.rtr = r
 
     def test_start_position(self):
-        r1 = Rotor('A')
-        self.assertEqual(r1.state, 'A')
-        r2 = Rotor('R')
-        self.assertEqual(r2.state, 'R')
+        r = self.rtr
+        self.assertEqual(r.state, 'A')
+        self.assertEqual(r.key_order[0], 'B')
+        self.assertEqual(r.key_order[3], 'D')
+
+
+    def test_state(self):
+        r = self.rtr
+        self.assertEqual(r.state_index(), 0)
+
+        r.set_state('D')
+        self.assertEqual(r.state, 'D')
+        self.assertEqual(r.state_index(), 3)
 
     def test_letter_mapping(self):
         r = self.rtr

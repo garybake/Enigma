@@ -3,14 +3,13 @@ from rotor import Rotor
 class RotorGroup:
 
     def __init__(self, map_set, initial_states=None):
+        rotor_count = len(map_set)
         if not initial_states:
-            initial_states = ['A', 'B', 'C']
+            initial_states = ['A'] * len(map_set)
 
         self.rotors = []
-        rotor_count = len(map_set)
         for idx in range(rotor_count):
-            r = Rotor(initial_states[idx])
-            r.set_mappings(map_set[idx])
+            r = Rotor(key_order=map_set[idx], start_state='A')
             self.rotors.append(r)
 
     def map_letter(self, letter, reverse=False):
