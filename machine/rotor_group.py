@@ -25,5 +25,4 @@ class RotorGroup:
         current_letter = letter
         for r in rotor_list:
             current_letter = r.map_letter(current_letter)
-
         return current_letter

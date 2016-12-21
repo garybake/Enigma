@@ -23,5 +23,9 @@ class RotorTest(unittest.TestCase):
         map_a = self.rgroup.map_letter('A')
         self.assertEqual(map_a, 'Z')
 
+        # All set to default
+        # for r in self.rgroup.rotors:
+        #     print(r.key_order)
+
 if __name__ == '__main__':
     unittest.main()

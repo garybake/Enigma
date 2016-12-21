@@ -67,6 +67,29 @@ class RotorTest(unittest.TestCase):
         self.assertEqual(r.map_letter('M'), 'J')
         self.assertEqual(r.map_letter('Z'), 'W')
 
+    def test_rotate(self):
+        r = self.rtr
+
+        # Start at A
+        self.assertEqual(r.state, 'A')
+        self.assertEqual(r.state_index(), 0)
+        self.assertEqual(r.map_letter('A'), 'W')
+
+        # Rotate twice to C
+        r.rotate()
+        r.rotate()
+        self.assertEqual(r.state, 'C')
+        self.assertEqual(r.state_index(), 2)
+
+        # Jump to Z
+        r.set_state('Z')
+        self.assertEqual(r.state, 'Z')
+
+        # Rotate circles back to A
+        r.rotate()
+        self.assertEqual(r.state, 'A')
+        self.assertEqual(r.state_index(), 0)
+
 
 if __name__ == '__main__':
     unittest.main()
