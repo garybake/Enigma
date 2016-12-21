@@ -47,7 +47,14 @@ class Rotor:
             return self.identity_map[idx]
 
     def rotate(self, rotations=1):
+        """
+        Rotate the mappings by one step
+        Return true when wheel has completed a cycle else fals
+        """
+        new_revolution = False
         new_idx = self.state_index() + rotations
         if new_idx > 25:
             new_idx = new_idx - 26
+            new_revolution = True
         self.set_state(self.identity_map[new_idx])
+        return new_revolution

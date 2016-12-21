@@ -27,5 +27,25 @@ class RotorTest(unittest.TestCase):
         # for r in self.rgroup.rotors:
         #     print(r.key_order)
 
+    def test_rotations(self):
+        rotors = self.rgroup.rotors
+
+        rotors[0].rotate()
+        self.assertEqual(rotors[0].state_index(), 1)
+        self.assertEqual(rotors[1].state_index(), 0)
+        self.assertEqual(rotors[2].state_index(), 0)
+
+        rotors[0].rotate()
+        self.assertEqual(rotors[0].state_index(), 2)
+        self.assertEqual(rotors[1].state_index(), 0)
+        self.assertEqual(rotors[2].state_index(), 0)
+
+        rotors[0].set_state('Z')
+        rotors[0].rotate()
+        self.assertEqual(rotors[0].state_index(), 0)
+        self.assertEqual(rotors[1].state_index(), 1)
+        self.assertEqual(rotors[2].state_index(), 0)
+
+
 if __name__ == '__main__':
     unittest.main()

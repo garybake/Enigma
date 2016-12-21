@@ -26,3 +26,18 @@ class RotorGroup:
         for r in rotor_list:
             current_letter = r.map_letter(current_letter)
         return current_letter
+
+    def rotate(self):
+        """
+        Rotate relavent wheels one rotation
+        TODO:
+        Do we rotate before or after press?
+        Does rotation propagate on last state or on 26 clicks?
+
+        Rotate n+1 rotor when current state is rotated to zero
+        """
+        rotate_next = True
+        for x, r in enumerate(self.rotors):
+            print('here')
+            if rotate_next:
+                rotate_next = r.rotate()
